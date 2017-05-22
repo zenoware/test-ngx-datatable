@@ -1,0 +1,27 @@
+<!-- Test the common table -->
+<ng-template #rowDropDownTemplate let-row="row" ngx-datatable-cell-template>
+  <a [class.datatable-icon-right]="!row.$$expanded" [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Details"
+    (click)="toggleExpandRow(row)">
+        </a>
+</ng-template>
+
+<ng-template #rowDetailsTemplate let-row="row" ngx-datatable-row-detail-template>
+  <div class="uk-grid">
+    <div class="uk-width-1-2">
+      left-side data
+    </div>
+    <div class="uk-width-1-2">
+      right-side data
+    </div>
+  </div>
+</ng-template>
+
+<app-common-table 
+  [tablePaging]="tablePaging" 
+  [columns]="columns" 
+  [data]="tableData" 
+  [rowDetails]="rowDetailsTemplate" 
+  [rowDetailHeight]="200"
+  [hasServerPaging]="true" 
+  (onPaging)="onPaging($event)">
+</app-common-table>

@@ -1,0 +1,21 @@
+<div>
+  <h3>Results</h3>
+  <ngx-datatable 
+    #myTable
+    class="material expandable"
+    [rows]="data"
+    [columns]="columns"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [externalPaging]="hasServerPaging"
+    [count]="tablePaging.count" 
+    [offset]="tablePaging.offset" 
+    [limit]="tablePaging.limit" 
+    (page)='setPage($event)'>
+    <ngx-datatable-row-detail [rowHeight]="rowDetailHeight" #myDetailRow [template]="rowDetails" (toggle)="onDetailToggle($event)">
+    </ngx-datatable-row-detail>
+  </ngx-datatable>
+
+</div>
